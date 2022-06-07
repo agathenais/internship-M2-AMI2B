@@ -11,14 +11,11 @@ import io
 import pprint
 
 def convertset():
-    #data['Epitopic charge'].loc[data['Donor epitope'] == data['Recipient epitope']] = " "
-    #data['Epitopic charge'].loc[data['Donor epitope'] != data['Recipient epitope']] = "set()"
-    #print(data.to_csv('/Users/agathenaisadiguna/Downloads/Stage M2/calculsansblanc/Travail_haplostats/fauxneg/haplostats_fauxneg_all3.csv'))
     for nrow in range(len(data['Epitopic charge'])):
         if str(data['Epitopic charge'][nrow]) == "set()":
             if data['Donor epitope'][nrow] == data['Recipient epitope'][nrow]:
                 data['Epitopic charge'][nrow] = ' '
-    data.to_excel('/Users/agathenaisadiguna/Downloads/Stage M2/calculsansblanc/EasyHLA FR/fauxnegvrai/easyhlfr_fauxnegvrai_DQB1_1.xlsx')     
+    data.to_excel('path_1.xlsx')     
 
 
 
@@ -28,13 +25,13 @@ def count():
         print(count)
 
 def count2():
-    data['Count'].value_counts().to_csv("/Users/agathenaisadiguna/Downloads/Stage M2/calculsansblanc/EasyHLA FR/fauxnegvrai/easyhlfr_fauxnegvrai_DQB1_count2.csv")
+    data['Count'].value_counts().to_csv("path_count2.csv")
        
 from itertools import chain
 def count3():
     #print(data['Epitopic charge'].tolist())
     
-    list_allclass = ['181T', '78Y', '96Y', '104AK', '71E', '108P', 'rq74AV', '57DA', '37YV', '37Y', '112H', '28D', '31FY', '70DA', '4R', '16H', '38V', 'rq37YV', '58AY', '77TY', '70D', '86V', '98E', '32Y', '47YR', '85VV', '58A', 'rp67IE', '104A', '189R', 'rq75VT', '47Y', '73A', '74A', '140TV', '31F', '26F', '57D']
+    list_allclass = ['181T', '78Y', ...]
     
     
     occurrences = {}
@@ -55,8 +52,9 @@ def count3():
         
         TESTDATA = '''
 181T 39
-'''
-    df = pd.read_csv(io.StringIO(TESTDATA), sep=" ").to_csv("/Users/agathenaisadiguna/Downloads/Stage M2/Travail haplostats EURCAU/haplostats_eurcau_locusDRB1_count3.csv")   
+...
+''''
+    df = pd.read_csv(io.StringIO(TESTDATA), sep=" ").to_csv("path_count3.csv")   
 
 
 if __name__ == '__main__':
@@ -67,11 +65,11 @@ if __name__ == '__main__':
 
     input = args["input"]
     output = args["output"]
-
-    #data = pd.read_excel("/Users/agathenaisadiguna/Downloads/Stage M2/Travail HaploSFHI/eplet_dataHaplosfhi_fauxpos/table_graph_haplosfhi_v4/haplosfhi_all.xlsx")
-    data = pd.read_excel("/Users/agathenaisadiguna/Downloads/Stage M2/calculsansblanc/EasyHLA FR/fauxnegvrai/easyhlfr_fauxnegvrai_DQB1_count.xlsx")
+    
+    
+    data = pd.read_excel("path.xlsx")
 
 #convertset()
 #count()
-count2()
+#count2()
 #count3()
