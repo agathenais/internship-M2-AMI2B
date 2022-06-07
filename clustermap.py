@@ -6,24 +6,24 @@ import numpy as np
 
 A = ["DQB1*02:01", "DQB1*02:02", "DQB1*04:01", "DQB1*04:02" , "DQB1*05:01", "DQB1*05:02", "DQB1*06:01", "DQB1*06:02", "DQB1*06:03", "DQB1*06:04", "DQB1*06:09", "DQB1*03:01", "DQB1*03:02", "DQB1*03:03"]
 B = list(itertools.product( A, repeat=2))
-pd.Series(B).to_csv('/Users/agathenaisadiguna/Downloads/combinaison.csv')
+pd.Series(B).to_csv('path.csv')
 
-C = pd.read_excel("/Users/agathenaisadiguna/Downloads/combinaison.xlsx")
-D= pd.read_excel("/Users/agathenaisadiguna/Downloads/DQB1_input2.xlsx")
+C = pd.read_excel("path.xlsx")
+D= pd.read_excel("path.xlsx")
 names=['ID_T', 'DQB1_T', 'ID_P', 'DQB1_P']
-pd.DataFrame(C,columns=names).to_excel("/Users/agathenaisadiguna/Downloads/cgrsfed.xlsx")
+pd.DataFrame(C,columns=names).to_excel("path.xlsx")
 
 
-pd.read_csv('/Users/agathenaisadiguna/Downloads/DQB1.txt', sep=" ").to_csv("/Users/agathenaisadiguna/Downloads/DQB1.csv")
-df = pd.read_excel("/Users/agathenaisadiguna/Downloads/DQB1_input_clustermap.xlsx")
-df.pivot(index='DQB1_T', columns='DQB1_P', values='Count').to_csv("/Users/agathenaisadiguna/Downloads/DQB1_input_clustermap.csv")
+pd.read_csv('path/DQB1.txt', sep=" ").to_csv("path/DQB1.csv")
+df = pd.read_excel("path.xlsx")
+df.pivot(index='DQB1_T', columns='DQB1_P', values='Count').to_csv("path.csv")
 
 
-df = pd.read_excel("/Users/agathenaisadiguna/Downloads/prematrix2.xlsx")
-df.pivot_table(columns='DQB1_P', index='DQB1_T', values='Count').reset_index().to_csv("/Users/agathenaisadiguna/Downloads/matrix2.csv")
+df = pd.read_excel("/path/prematrix.xlsx")
+df.pivot_table(columns='DQB1_P', index='DQB1_T', values='Count').reset_index().to_csv("path/matrix.csv")
 
-data = pd.read_excel('/Users/agathenaisadiguna/Downloads/DQB1_input_clustermap.xlsx')
-data2= pd.read_excel('/Users/agathenaisadiguna/Downloads/matrix2.xlsx')
+data = pd.read_excel('path/input_clustermap.xlsx')
+data2= pd.read_excel('path/matrix.xlsx')
 cluster_map = sb.clustermap(data2)
 
 A = [[1.0,16.0,11.0,13.0,15.0,14.0,11.0,12.0,15.0,13.0,12.0,13.0,13.0], 
@@ -62,7 +62,7 @@ df = pd.DataFrame(A, index=names, columns=names)
 df.to_csv('df.csv', index=True, header=True, sep=' ')
 
 clustermap = sb.clustermap(df)
-plt.savefig('/Users/agathenaisadiguna/Downloads/clustermap.png')
+plt.savefig('path/clustermap.png')
 
 
 N = np.array([[0, 1,	16,	11,	13,	15,	14,	11,	12,	15,	13,	12,	13,	13],
@@ -85,4 +85,4 @@ df2 = pd.DataFrame(N, index=names, columns=names)
 df2.to_csv('df.csv', index=True, header=True, sep=' ')
 
 clustermap = sb.clustermap(df2, cmap="vlag")
-plt.savefig('/Users/agathenaisadiguna/Downloads/clustermap_finale.png')
+plt.savefig('path/clustermap_finale.png')
