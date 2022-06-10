@@ -1,5 +1,5 @@
 '''
-To sort the alleles alphabetically in the columns of the table.
+To count the number of errors in eplet, calculate the average number of errors in eplet and the prediction percentages
 '''
 
 # IMPORTS or LIBRARIES
@@ -41,34 +41,6 @@ def replacesetandblank():
 def count2():
     data4['Count'].value_counts().to_csv(output_count2)
 
-
-'''
-def count3():
-    # print(data['Epitopic charge'].tolist())
-
-    list_allclass = [list_all_eplet]
-
-    occurrences = {}
-    # Checking the element from sample list present as key in dictionary
-    # if yes than increment by 1 or create new key with value 1
-    for i in list_allclass:
-        if i in occurrences:
-            occurrences[i] += 1
-        else:
-            occurrences[i] = 1
-
-    # Printing dictionary
-    # print("element count using dictionary", occurrences)
-
-    # Printing all element with its count of Occurrence
-    for key, value in occurrences.items():
-        # print("{0} {1}".format(key, value))
-
-        TESTDATA =
-        # list_eplet + occurence
-    df = (pd.read_csv(io.StringIO(TESTDATA), sep=" ")
-          .to_csv(output_eplet_occurence))
-'''
 
 if __name__ == '__main__':
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
