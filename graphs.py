@@ -1,10 +1,9 @@
 '''
-To sort the alleles alphabetically in the columns of the table.
+To count the number of errors in eplet, calculate the average number of errors in eplet and the prediction percentages.
 '''
 
 # IMPORTS or LIBRARIES
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
-import io
 import pandas as pd
 import numpy as np
 
@@ -42,42 +41,14 @@ def count2():
     data4['Count'].value_counts().to_csv(output_count2)
 
 
-'''
-def count3():
-    # print(data['Epitopic charge'].tolist())
-
-    list_allclass = [list_all_eplet]
-
-    occurrences = {}
-    # Checking the element from sample list present as key in dictionary
-    # if yes than increment by 1 or create new key with value 1
-    for i in list_allclass:
-        if i in occurrences:
-            occurrences[i] += 1
-        else:
-            occurrences[i] = 1
-
-    # Printing dictionary
-    # print("element count using dictionary", occurrences)
-
-    # Printing all element with its count of Occurrence
-    for key, value in occurrences.items():
-        # print("{0} {1}".format(key, value))
-
-        TESTDATA =
-        # list_eplet + occurence
-    df = (pd.read_csv(io.StringIO(TESTDATA), sep=" ")
-          .to_csv(output_eplet_occurence))
-'''
-
 if __name__ == '__main__':
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
     parser.add_argument("-i", "--input", help="input file")
     parser.add_argument("-dir", "--directory", help="directory")
-    parser.add_argument("-ocs", "--output_convert_set", help="outputconver")
-    parser.add_argument("-oc", "--output_count", help="outputcount")
-    parser.add_argument("-ocv2", "--output_countv2", help="outputcountv2")
-    parser.add_argument("-oc2", "--output_count2", help="outputcount2")
+    parser.add_argument("-ocs", "--output_convert_set", help="Output convert set where set() becomes empty_set and predictions matches blank becomes it_match")
+    parser.add_argument("-oc", "--output_count", help="Output count where get count for each Epitopic charge")
+    parser.add_argument("-ocv2", "--output_countv2", help="Output count v2 where empty_set count 0 and it_match count No")
+    parser.add_argument("-oc2", "--output_count2", help="Output count2 where calculate every error number count")
 
     args = vars(parser.parse_args())
 
